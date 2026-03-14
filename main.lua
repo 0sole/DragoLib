@@ -1,19 +1,25 @@
 local DragoLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/0sole/DragoLib/main/Window.lua"))()
 
--- DragoLib'in yüklendiğinden emin olalım
-if not DragoLib then warn("WindowLib yüklenemedi!") return end
+-- Hata kontrolü yapalım
+if not DragoLib then 
+    warn("DragoLib yüklenemedi! Linkleri kontrol et.") 
+    return 
+end
 
 local Drago = DragoLib:CreateWindow({Name = "DRAGO INTERNAL"})
 
--- Eğer CreateWindow bir şey döndürmediyse hata vermesini engelleyelim
-if not Drago then warn("Window oluşturulamadı!") return end
+-- CreateWindow nil döndürürse burada durdurur
+if not Drago then 
+    warn("Pencere oluşturulamadı! return satırlarını kontrol et.") 
+    return 
+end
 
 local Tab1 = Drago:CreateTab("Main")
 
 Tab1:CreateButton("Test Butonu", function()
-    print("Çalıştı!")
+    print("Buton Başarıyla Çalıştı!")
 end)
 
-Tab1:CreateToggle("Örnek Toggle", false, function(s)
-    print("Durum:", s)
+Tab1:CreateToggle("Örnek Özellik", false, function(state)
+    print("Özellik Durumu:", state)
 end)
