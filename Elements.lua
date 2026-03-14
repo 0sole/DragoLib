@@ -2,6 +2,7 @@ local Elements = {}
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
 
+-- [BUTON]
 function Elements:CreateButton(Page, text, callback)
     local Button = Instance.new("TextButton")
     Button.Size = UDim2.new(0.96, 0, 0, 45)
@@ -16,9 +17,11 @@ function Elements:CreateButton(Page, text, callback)
     local S = Instance.new("UIStroke", Button)
     S.Color = Color3.fromRGB(180, 0, 0)
     S.Transparency = 0.5
+
     Button.MouseButton1Click:Connect(function() callback() end)
 end
 
+-- [TOGGLE]
 function Elements:CreateToggle(Page, text, default, callback)
     local Toggled = default or false
     local ToggleBtn = Instance.new("TextButton")
@@ -56,6 +59,7 @@ function Elements:CreateToggle(Page, text, default, callback)
     end)
 end
 
+-- [KEYBIND]
 function Elements:CreateKeybind(Page, text, defaultKey, callback)
     local KeyBtn = Instance.new("TextButton")
     KeyBtn.Size = UDim2.new(0.96, 0, 0, 45)
