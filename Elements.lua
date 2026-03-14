@@ -1,6 +1,5 @@
 local Elements = {}
 local TweenService = game:GetService("TweenService")
-local UserInputService = game:GetService("UserInputService")
 
 function Elements:CreateButton(Page, text, callback)
     local Button = Instance.new("TextButton")
@@ -16,7 +15,7 @@ function Elements:CreateButton(Page, text, callback)
     local S = Instance.new("UIStroke", Button)
     S.Color = Color3.fromRGB(180, 0, 0)
     S.Transparency = 0.5
-    Button.MouseButton1Click:Connect(function() callback() end)
+    Button.MouseButton1Click:Connect(function() pcall(callback) end)
 end
 
 function Elements:CreateToggle(Page, text, default, callback)
@@ -52,8 +51,9 @@ function Elements:CreateToggle(Page, text, default, callback)
         local targetCol = Toggled and Color3.fromRGB(180, 0, 0) or Color3.fromRGB(40, 40, 40)
         TweenService:Create(Switch, TweenInfo.new(0.2), {Position = targetPos}):Play()
         TweenService:Create(Indicator, TweenInfo.new(0.2), {BackgroundColor3 = targetCol}):Play()
-        callback(Toggled)
+        pcall(callback, Toggled)
     end)
 end
 
+print("DragoLib: Elements Loaded")
 return Elements
