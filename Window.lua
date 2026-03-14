@@ -5,9 +5,9 @@ local RunService = game:GetService("RunService")
 local CoreGui = game:GetService("CoreGui")
 local LocalPlayer = game:GetService("Players").LocalPlayer
 
--- Elements.lua dosyasını yüklüyoruz.
--- Not: Eğer executor loadfile desteklemiyorsa şunu kullan: loadstring(readfile("Elements.lua"))()
-local Elements = loadfile("Elements.lua")() 
+-- Eski hali: local Elements = loadfile("Elements.lua")()
+-- Yeni hali:
+local Elements = loadstring(game:HttpGet("https://raw.githubusercontent.com/0sole/DragoLib/main/Elements.lua"))()
 
 function WindowLib:CreateWindow(options)
     local WindowName = options.Name or "DRAGO INTERNAL"
