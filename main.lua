@@ -1,6 +1,6 @@
--- Sadece Window.lua dosyasını çağırıyoruz, gerisini o hallediyor!
--- Not: Çalıştığın executor'a göre loadfile yerine loadstring(readfile("Window.lua"))() gerekebilir.
-local DragoLib = loadfile("Window.lua")()
+-- Eski hali: local DragoLib = loadfile("Window.lua")()
+-- Yeni hali:
+local DragoLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/0sole/DragoLib/main/Window.lua"))()
 
 -- [[ KULLANIM ]] --
 local Drago = DragoLib:CreateWindow({Name = "DRAGO INTERNAL"})
